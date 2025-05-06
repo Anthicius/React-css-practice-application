@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styled from 'styled-components';
 
 const Label = styled.label`
   display: block;
@@ -7,7 +8,7 @@ const Label = styled.label`
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #6b7280;
+  color:${(props)=>props.invalid? '#f87171' : '#6b7280' };
 `;
 
 const ControlContainer = styled.div`
@@ -51,7 +52,7 @@ export default function AuthInputs() {
     <div id="auth-inputs">
       <ControlContainer>
         <p className="paragraph">
-          <Label className={`${emailNotValid ? "invalid" : ""}`}>Email</Label>
+          <Label invalid={emailNotValid}>Email</Label>
           <Input
             type="email"
             // style={{backgroundColor: emailNotValid ? '#fed2d2' : '#d1d5db'}}
